@@ -27,7 +27,9 @@ pipeline {
       //             }
         withAWS(credentials: 'aws-superuser', region: 'eu-central-1') {
           sh 'aws iam get-user'
-          sh './deploy.sh'
+          sh 'aws lambda update-function-code --function-name go-lambda
+          --zip-file go-lambda.zip'
+//          sh './deploy.sh'
         }
       }
     }
