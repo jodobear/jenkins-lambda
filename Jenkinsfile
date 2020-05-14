@@ -2,7 +2,7 @@ pipeline {
   agent { docker { image "amazon/aws-cli" } }
 
   stages {
-    stage('Deploy Lambda') {
+    stage('Configure aws-cli') {
       steps {
         withCredentials(
           [[
