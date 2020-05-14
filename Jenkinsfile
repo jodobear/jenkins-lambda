@@ -1,5 +1,5 @@
 pipeline {
-  agent { docker { image "amazon/aws-cli" } }
+  agent { docker { image "amazon/aws-cli:latest" } }
 
   stages {
     stage('Configure aws-cli') {
