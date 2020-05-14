@@ -1,7 +1,12 @@
 def output
 
 pipeline {
-  agent { docker { image "amazon/aws-cli:latest" } }
+  agent { 
+    docker { 
+      image "amazon/aws-cli:latest"
+      args '--entrypoint='
+    } 
+  }
 
   stages {
     stage('Configure aws-cli') {
