@@ -20,9 +20,10 @@ pipeline {
       //                     ./deploy.sh"
       //               echo "${AWS_ACCESS_KEY_ID}"
       //             }
-     withAWS(credentials: 'aws-superuser', region: 'eu-central-1') {
-       sh 'aws iam get-user'
-       sh './deploy.sh'
+        withAWS(credentials: 'aws-superuser', region: 'eu-central-1') {
+          sh 'aws iam get-user'
+          sh './deploy.sh'
+        }
       }
     }
   }
