@@ -12,10 +12,11 @@ pipeline {
              secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
           ]]) {
                 echo "Deploying Lambda Fn"
-                sh "AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} \
-                    AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} \
-                    AWS_REGION=eu-central-1 \
-                    ./deploy.sh"
+                sh   "AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} \
+                      AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} \
+                      AWS_REGION=eu-central-1 \
+                      ./deploy.sh"
+                echo "${AWS_ACCESS_KEY_ID}"
               }
       }
     }
