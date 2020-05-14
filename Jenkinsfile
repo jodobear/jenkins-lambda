@@ -1,14 +1,20 @@
+def output
+
 pipeline {
   agent { docker { image "amazon/aws-cli:latest" } }
 
   stages {
     stage('Configure aws-cli') {
       steps {
-        withCredentials(
+        // withCredentials(
+        //  [[
+        //    $class: 'UsernamePasswordMultiBinding',
+        //    credentialsId: 'aws-', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY']])
+  withCredentials(
           [[
              $class: 'AmazonWebServicesCredentialsBinding',
              accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-             credentialsId: 'aws-',  // ID of credentials in Jenkins
+             credentialsId: 'aws-superuser',  // ID of credentials in Jenkins
              secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
           ]]) {
                 echo "Deploying Lambda Fn"
